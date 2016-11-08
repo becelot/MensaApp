@@ -26,19 +26,7 @@ public class JSONMensa extends Mensa {
     private final String HOST = "192.168.0.11";
     private final String MENU_API_HOST = "/getMenus?uni=RWTH%20Aachen&mensa=%s";
 
-    private static Gson getParser() {
-        RuntimeTypeAdapterFactory<IDataProvider> runtimeTypeAdapterFactory = RuntimeTypeAdapterFactory
-                .of(IDataProvider.class, "type")
-                .registerSubtype(NavigationHeader.class, "header")
-                .registerSubtype(University.class, "uni")
-                .registerSubtype(RwthUniversity.class, "rwthUni")
-                .registerSubtype(RwthMensa.class, "rwthMensa")
-                .registerSubtype(JSONMensa.class, "jsonMensa")
-                .registerSubtype(JSONUniversity.class, "jsonUni")
-                .registerSubtype(Mensa.class, "mensa")
-                .registerSubtype(Menu.class, "menu");
-        return new GsonBuilder().registerTypeAdapterFactory(runtimeTypeAdapterFactory).create();
-    }
+
 
     public JSONMensa(String name, String webpage) {
         super(name, webpage);
@@ -55,7 +43,7 @@ public class JSONMensa extends Mensa {
             json = client.requestData(String.format(MENU_API_HOST, URLEncoder.encode(this.getName(), "UTF-8")));
 
             Type listType = new TypeToken<List<IDataProvider>>(){}.getType();
-            return getParser().fromJson(json, listType);
+            return JsonParser.getParser().fromJson(json, listType);
 
         } catch (Exception e) {
             e.printStackTrace();
