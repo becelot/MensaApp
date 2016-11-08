@@ -8,7 +8,7 @@ import java.net.Socket;
  */
 
 public class HttpClient {
-    private static final int PORT = 80;
+    private int port = 80;
     private String host;
     private Socket socket;
 
@@ -17,13 +17,18 @@ public class HttpClient {
         this.host = host;
     }
 
+    public HttpClient(String host, int port ) {
+        this.host = host;
+        this.port = port;
+    }
+
     public void connect() throws IOException {
-        socket = new Socket(host, PORT);
+        socket = new Socket(host, port);
         //socket.setSoTimeout(10);
     }
 
     public void connect(String host) throws IOException {
-        socket = new Socket(host, PORT);
+        socket = new Socket(host, port);
         socket.setSoTimeout(10);
     }
 

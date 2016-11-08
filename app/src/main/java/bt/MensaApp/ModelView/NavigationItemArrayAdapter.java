@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import bt.MensaApp.Model.Format;
 import bt.MensaApp.Model.IDataProvider;
 import bt.MensaApp.Model.Mensa;
 import bt.MensaApp.Model.Menu;
@@ -77,6 +78,17 @@ public class NavigationItemArrayAdapter extends ArrayAdapter<IDataProvider> {
                 ((TextView) convertView.findViewById(R.id.menuCategory)).setText(menu.getCategory());
                 ((TextView) convertView.findViewById(R.id.menuName)).setText(menu.getName());
                 ((TextView) convertView.findViewById(R.id.menuPrice)).setText(menu.getPrice());
+            }
+        } else if (navItem instanceof Format) {
+
+            LayoutInflater inflater = LayoutInflater.from(getContext());
+            convertView = inflater.inflate(R.layout.mensa_view_item, null);
+
+
+            Format format = (Format) navItem;
+
+            if (format != null) {
+                ((TextView) convertView.findViewById(R.id.mensaName)).setText(format.getAdapter());
             }
         }
 

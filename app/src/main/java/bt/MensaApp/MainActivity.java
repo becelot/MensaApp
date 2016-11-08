@@ -8,6 +8,7 @@ import android.os.Bundle;
 import java.util.ArrayList;
 
 import bt.MensaApp.Data.DataContext;
+import bt.MensaApp.Model.Format;
 import bt.MensaApp.Model.IDataProvider;
 
 public class MainActivity extends Activity {
@@ -26,7 +27,7 @@ public class MainActivity extends Activity {
                     e.printStackTrace();
                 }
                 Intent intent = new Intent(MainActivity.this, NavigationActivity.class);
-                intent.putExtra(NavigationActivity.EXTRA_NAVIGATION_ITEM_KEY, new ArrayList<IDataProvider>(DataContext.getUniversityList()));
+                intent.putExtra(NavigationActivity.EXTRA_NAVIGATION_ITEM_KEY, new ArrayList<IDataProvider>(Format.getFormats()));
                 startActivity(intent);
                 return 0;
             }

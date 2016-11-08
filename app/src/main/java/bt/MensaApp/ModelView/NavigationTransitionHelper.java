@@ -2,6 +2,7 @@ package bt.MensaApp.ModelView;
 
 import java.util.List;
 
+import bt.MensaApp.Model.Format;
 import bt.MensaApp.Model.IDataProvider;
 import bt.MensaApp.Model.Mensa;
 import bt.MensaApp.Model.University;
@@ -16,6 +17,8 @@ public class NavigationTransitionHelper {
             return ((University)obj).getMensaList();
         } else if (obj instanceof Mensa) {
             return ((Mensa)obj).getMenus();
+        } else if (obj instanceof Format) {
+            return ((Format)obj).getUniversities();
         }
 
         return null;
