@@ -1,0 +1,70 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        android:background="#A3BCC4"
+        android:baselineAligned="false"
+        android:id="@+id/menuInformation">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingStart="10dp"
+                android:paddingRight="10dp"
+                android:paddingEnd="10dp"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:textColor="#000000"
+                android:text="Category"
+                android:id="@+id/menuCategory"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="0.8">
+            <TextView
+                android:text="1,80€"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:paddingStart="0dp"
+                android:paddingLeft="0dp"
+                android:paddingEnd="10dp"
+                android:paddingRight="10dp"
+                android:textColor="#000000"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                android:id="@+id/menuPrice" />
+        </RelativeLayout>
+    </LinearLayout>
+
+
+    <TextView
+        android:text="Name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"
+        android:paddingStart="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingEnd="10dp"
+        android:gravity="start"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.SearchResult.Title"
+        android:id="@+id/menuName" />
+
+
+
+</LinearLayout>
