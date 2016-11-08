@@ -24,12 +24,16 @@ import bt.MensaApp.Net.HttpClient;
 
 public class JSONMensa extends Mensa {
     private final String HOST = "192.168.0.11";
-    private final String MENU_API_HOST = "/getMenus?uni=RWTH%20Aachen&mensa=%s";
+    private final String MENU_API_HOST = "/getMenus?uni=%s&mensa=%s";
 
 
 
     public JSONMensa(String name, String webpage) {
         super(name, webpage);
+    }
+
+    public JSONMensa(Mensa mensa) {
+        super(mensa);
     }
 
     @Override
@@ -40,7 +44,7 @@ public class JSONMensa extends Mensa {
         try {
             client.connect();
 
-            json = client.requestData(String.format(MENU_API_HOST, URLEncoder.encode(this.getName(), "UTF-8")));
+            json = client.requestData(String.format(MENU_API_HOST, URLEncoder.encode("RWTH Aachen", "UTF-8"), URLEncoder.encode(this.getName(), "UTF-8")));
 
             Type listType = new TypeToken<List<IDataProvider>>(){}.getType();
             return JsonParser.getParser().fromJson(json, listType);

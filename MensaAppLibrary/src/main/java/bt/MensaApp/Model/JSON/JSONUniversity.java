@@ -30,6 +30,10 @@ public class JSONUniversity extends University {
         super(name, adapter);
     }
 
+    public JSONUniversity(University other) {
+        super(other);
+    }
+
     @Override
     public List<IDataProvider> getMensaList() {
         HttpClient client = new HttpClient(HOST, 9000);

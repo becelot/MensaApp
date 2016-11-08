@@ -1,28 +1,45 @@
 package bt.MensaApp.Model.Formats;
 
-import java.util.ArrayList;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.net.URLEncoder;
 import java.util.List;
 
 import bt.MensaApp.Model.Format;
 import bt.MensaApp.Model.IDataProvider;
-import bt.MensaApp.Model.JSON.JSONUniversity;
-import bt.MensaApp.Model.NavigationHeader;
-import bt.MensaApp.Model.Rwth.Uncompressed.RwthUniversity;
+import bt.MensaApp.Model.JSON.JsonParser;
+import bt.MensaApp.Net.HttpClient;
 
 /**
  * Created by bened on 11/8/2016.
  */
 
 public class JSONFormat extends Format {
+    private final String HOST = "192.168.0.11";
+    private final String UNIVERSITY_API_KEY = "/getUni";
+
     public JSONFormat(String adapter) {
         super(adapter);
     }
 
     @Override
     public List<IDataProvider> getUniversities() {
-        List<IDataProvider> universityList = new ArrayList<>();
-        universityList.add(new NavigationHeader("Universität"));
-        universityList.add(new JSONUniversity("RWTH Aachen", "HTML"));
-        return universityList;
+        HttpClient client = new HttpClient(HOST, 9000);
+        String json;
+
+        try {
+            client.connect();
+
+            json = client.requestData(String.format(UNIVERSITY_API_KEY));
+
+            Type listType = new TypeToken<List<IDataProvider>>(){}.getType();
+            return JsonParser.getParser().fromJson(json, listType);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return null;
     }
 }

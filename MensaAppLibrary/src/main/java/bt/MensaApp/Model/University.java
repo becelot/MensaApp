@@ -17,6 +17,11 @@ public abstract class University implements Serializable, IDataProvider {
         this.adapter = adapter;
     }
 
+    public University(University other) {
+        this.name = other.name;
+        this.adapter = other.adapter;
+    }
+
 
     public String getName() {
         return name;

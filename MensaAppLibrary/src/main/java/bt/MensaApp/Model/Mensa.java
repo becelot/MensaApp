@@ -17,6 +17,11 @@ public abstract class Mensa implements Serializable, IDataProvider {
         this.webpage = webpage;
     }
 
+    public Mensa(Mensa mensa) {
+        this.name = mensa.getName();
+        this.webpage = mensa.getWebpage();
+    }
+
     public String getName() {
         return name;
     }
