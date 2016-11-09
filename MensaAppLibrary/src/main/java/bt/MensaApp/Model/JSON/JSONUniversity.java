@@ -23,7 +23,7 @@ import bt.MensaApp.Net.HttpClient;
  */
 
 public class JSONUniversity extends University {
-    private final String HOST = "192.168.0.11";
+    private final String HOST = "134.61.74.81";
     private final String MENSA_API_HOST = "/getMensa?uni=%s";
 
     public JSONUniversity(String name, String adapter) {

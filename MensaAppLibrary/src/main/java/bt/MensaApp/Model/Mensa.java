@@ -10,16 +10,19 @@ import java.util.List;
 public abstract class Mensa implements Serializable, IDataProvider {
     private String name;
     private String webpage;
+    private University university;
 
 
-    public Mensa(String name, String webpage) {
+    public Mensa(String name, String webpage, University university) {
         this.name = name;
         this.webpage = webpage;
+        this.university = university;
     }
 
     public Mensa(Mensa mensa) {
         this.name = mensa.getName();
         this.webpage = mensa.getWebpage();
+        this.university = mensa.getUniversity();
     }
 
     public String getName() {
@@ -40,4 +43,7 @@ public abstract class Mensa implements Serializable, IDataProvider {
         this.webpage = webpage;
     }
 
+    public University getUniversity() {
+        return university;
+    }
 }

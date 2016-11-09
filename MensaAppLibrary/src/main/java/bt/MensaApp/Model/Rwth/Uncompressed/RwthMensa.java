@@ -30,6 +30,7 @@ import javax.xml.xpath.XPathFactory;
 import bt.MensaApp.Model.Mensa;
 import bt.MensaApp.Model.Menu;
 import bt.MensaApp.Model.NavigationHeader;
+import bt.MensaApp.Model.University;
 import bt.MensaApp.Net.HttpClient;
 
 /**
@@ -39,8 +40,8 @@ import bt.MensaApp.Net.HttpClient;
 public class RwthMensa extends Mensa {
     private final String HOST = "www.studierendenwerk-aachen.de";
 
-    public RwthMensa(String name, String informationPage) {
-        super(name, informationPage);
+    public RwthMensa(String name, String informationPage, University university) {
+        super(name, informationPage, university);
     }
 
     private Document parseHtmlFast(String html) throws ParserConfigurationException, IOException, SAXException {
