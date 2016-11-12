@@ -1,6 +1,7 @@
 package bt.MensaApp.Net;
 
 import java.io.IOException;
+import java.net.InetSocketAddress;
 import java.net.Socket;
 
 /**
@@ -23,13 +24,15 @@ public class HttpClient {
     }
 
     public void connect() throws IOException {
-        socket = new Socket(host, port);
-        //socket.setSoTimeout(10);
+        socket = new Socket();
+        socket.connect(new InetSocketAddress(host, port), 10000);
+        socket.setSoTimeout(10000);
     }
 
     public void connect(String host) throws IOException {
-        socket = new Socket(host, port);
-        socket.setSoTimeout(10);
+        socket = new Socket();
+        socket.connect(new InetSocketAddress(host, port), 10000);
+        socket.setSoTimeout(10000);
     }
 
     public String requestData(String ressource) throws IOException, HttpHeaderException {

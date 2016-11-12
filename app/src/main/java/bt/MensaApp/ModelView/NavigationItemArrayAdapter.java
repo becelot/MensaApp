@@ -1,9 +1,7 @@
 package bt.MensaApp.ModelView;
 
-import android.app.Activity;
 import android.content.Context;
 import android.support.annotation.NonNull;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -54,8 +52,6 @@ public class NavigationItemArrayAdapter extends ArrayAdapter<IDataProvider> {
             if (uni != null) {
                 TextView uniName = (TextView) convertView.findViewById(R.id.universityName);
                 uniName.setText(uni.getName());
-
-                ((TextView) convertView.findViewById(R.id.universityAdapter)).setText(uni.getAdapter());
             }
         } else if (navItem instanceof Mensa) {
             LayoutInflater inflater = LayoutInflater.from(getContext());

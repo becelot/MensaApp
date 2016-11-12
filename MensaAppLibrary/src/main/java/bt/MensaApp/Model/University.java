@@ -9,17 +9,14 @@ import java.util.List;
 
 public abstract class University implements Serializable, IDataProvider {
     private String name;
-    private String adapter;
 
 
-    public University(String name, String adapter) {
+    public University(String name) {
         this.name = name;
-        this.adapter = adapter;
     }
 
     public University(University other) {
         this.name = other.name;
-        this.adapter = other.adapter;
     }
 
 
@@ -29,14 +26,6 @@ public abstract class University implements Serializable, IDataProvider {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getAdapter() {
-        return adapter;
-    }
-
-    public void setAdapter(String adapter) {
-        this.adapter = adapter;
     }
 
     public abstract List<IDataProvider> getMensaList();

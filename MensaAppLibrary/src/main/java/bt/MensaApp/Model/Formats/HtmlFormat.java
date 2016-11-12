@@ -21,7 +21,7 @@ public class HtmlFormat extends Format {
     public List<IDataProvider> getUniversities() {
         List<IDataProvider> universityList = new ArrayList<>();
         universityList.add(new NavigationHeader("Universität"));
-        universityList.add(new RwthUniversity("RWTH Aachen", "HTML"));
+        universityList.add(new RwthUniversity("RWTH Aachen"));
         return universityList;
     }
 }

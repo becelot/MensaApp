@@ -7,7 +7,6 @@ import android.os.Bundle;
 
 import java.util.ArrayList;
 
-import bt.MensaApp.Data.DataContext;
 import bt.MensaApp.Model.Format;
 import bt.MensaApp.Model.IDataProvider;
 

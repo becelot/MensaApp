@@ -3,7 +3,6 @@ package bt.MensaApp.Data;
 import java.util.Arrays;
 import java.util.List;
 
-
 import bt.MensaApp.Model.IDataProvider;
 import bt.MensaApp.Model.NavigationHeader;
 import bt.MensaApp.Model.Rwth.Uncompressed.RwthUniversity;
@@ -14,6 +13,6 @@ import bt.MensaApp.Model.Rwth.Uncompressed.RwthUniversity;
 
 public class DataContext {
     public static List<IDataProvider> getUniversityList() {
-        return Arrays.asList((IDataProvider) new NavigationHeader("Alle Universitäten"), new RwthUniversity("RWTH Aachen", "Uncompressed"), new RwthUniversity("RWTH Aachen", "Compressed"));
+        return Arrays.asList((IDataProvider) new NavigationHeader("Alle Universitäten"), new RwthUniversity("RWTH Aachen"), new RwthUniversity("RWTH Aachen"));
     }
 }

@@ -1,26 +1,22 @@
 package bt.MensaApp;
 
+import android.app.Fragment;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import bt.MensaApp.Data.DataContext;
 import bt.MensaApp.Model.IDataProvider;
-import bt.MensaApp.Model.Mensa;
-import bt.MensaApp.Model.University;
 import bt.MensaApp.ModelView.NavigationItemArrayAdapter;
-import bt.MensaApp.ModelView.NavigationTransitionHelper;
 
 
 /**
@@ -58,7 +54,7 @@ public class FragmentNavigation extends Fragment {
                     protected Integer doInBackground(IDataProvider... navigationList) {
                         List<IDataProvider> nextNavigationItems = navigationList[0].getData();
                         if (nextNavigationItems == null) {
-                            return 0;
+                            return -1;
                         }
                         ArrayList<Object> menuOrdered = new ArrayList<Object>(nextNavigationItems);
                         Intent intent = new Intent(getActivity(), NavigationActivity.class);
@@ -71,6 +67,9 @@ public class FragmentNavigation extends Fragment {
                     protected void onPostExecute(Integer result) {
                         // execution of result of Long time consuming operation
                         progressDialog.dismiss();
+                        if (result == -1) {
+                            Toast.makeText(getActivity().getBaseContext(), "Connection failed.\n Check your internet connection or try again later.", Toast.LENGTH_LONG).show();
+                        }
                     }
 
 

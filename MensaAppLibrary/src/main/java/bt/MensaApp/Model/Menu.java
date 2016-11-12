@@ -1,7 +1,6 @@
 package bt.MensaApp.Model;
 
 import java.io.Serializable;
-import java.util.Calendar;
 import java.util.List;
 
 /**

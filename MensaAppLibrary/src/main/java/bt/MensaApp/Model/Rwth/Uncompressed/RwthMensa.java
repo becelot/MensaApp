@@ -1,21 +1,15 @@
 package bt.MensaApp.Model.Rwth.Uncompressed;
 
-import bt.MensaApp.Model.IDataProvider;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-import org.w3c.dom.ls.DOMImplementationLS;
-import org.w3c.dom.ls.LSSerializer;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
-import org.xml.sax.SAXParseException;
-
 
 import java.io.IOException;
 import java.io.StringReader;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
@@ -27,6 +21,7 @@ import javax.xml.xpath.XPathExpression;
 import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
 
+import bt.MensaApp.Model.IDataProvider;
 import bt.MensaApp.Model.Mensa;
 import bt.MensaApp.Model.Menu;
 import bt.MensaApp.Model.NavigationHeader;
@@ -126,8 +121,7 @@ public class RwthMensa extends Mensa {
                 }
             }
         } catch (Exception e) {
-            result = Arrays.asList((IDataProvider) new NavigationHeader("Connection failed: " + e.getStackTrace()));
-            e.printStackTrace();
+            return null;
         }
 
 

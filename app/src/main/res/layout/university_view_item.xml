@@ -23,14 +23,6 @@
                 android:gravity="left"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
                 android:id="@+id/universityName" />
-
-            <TextView
-                android:text="Adapter"
-                android:paddingLeft="10dp"
-                android:gravity="left"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/universityAdapter"/>
         </LinearLayout>
     </RelativeLayout>
 

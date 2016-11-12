@@ -13,8 +13,8 @@ import bt.MensaApp.Model.University;
 
 public class RwthUniversity extends University {
 
-    public RwthUniversity(String name, String adapter) {
-        super(name, adapter);
+    public RwthUniversity(String name) {
+        super(name);
     }
 
     @Override
