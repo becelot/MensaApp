@@ -11,12 +11,19 @@ import java.util.ArrayList;
 import bt.MensaApp.Model.IDataProvider;
 
 /**
- * Created by bened on 11/7/2016.
+ * Navigation activity that contains a list view for navigation purpose.
  */
 
 public class NavigationActivity extends Activity {
+    /**
+     * Intent parameter from previous activity
+     */
     public static final String EXTRA_NAVIGATION_ITEM_KEY = "EXTRA_NAVIGATION_ITEM_KEY";
 
+    /**
+     * Called when acitivity is started. Sets the current view to the FragmentNavigation
+     * @param savedInstanceState The saved instance from the app lifecycle state
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

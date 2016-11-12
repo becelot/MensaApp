@@ -13,7 +13,8 @@ import bt.MensaApp.Model.Rwth.Uncompressed.RwthUniversity;
 import bt.MensaApp.Model.University;
 
 /**
- * Created by bened on 11/8/2016.
+ * Static class providing a parser with all subtypes registered for polymorphic json.
+ * Accessed from all JSON related classes.
  */
 
 public class JsonParser {

@@ -29,16 +29,33 @@ import bt.MensaApp.Model.University;
 import bt.MensaApp.Net.HttpClient;
 
 /**
- * Created by bened on 11/5/2016.
+ * Concrete implementation of the RWTH Mensa menu parser
  */
 
 public class RwthMensa extends Mensa {
+    /**
+     * Host of the webpage
+     */
     private final String HOST = "www.studierendenwerk-aachen.de";
 
+    /**
+     * Constructor for a RWTH mensa
+     * @param name Name of the mensa
+     * @param informationPage Webpage used to retrieve the information
+     * @param university The university this mensa is associated with (RWTH)
+     */
     public RwthMensa(String name, String informationPage, University university) {
         super(name, informationPage, university);
     }
 
+    /**
+     * Construct a html xml parser that ignores html inconsistencies for speed reasons
+     * @param html String containing the html to parse
+     * @return
+     * @throws ParserConfigurationException
+     * @throws IOException
+     * @throws SAXException
+     */
     private Document parseHtmlFast(String html) throws ParserConfigurationException, IOException, SAXException {
         DocumentBuilderFactory fac = DocumentBuilderFactory.newInstance();
         fac.setNamespaceAware(false);
@@ -56,10 +73,18 @@ public class RwthMensa extends Mensa {
         return fac.newDocumentBuilder().parse(new InputSource(new StringReader(html)));
     }
 
+    /**
+     * Extracts a single menu from a xml node containing the menu
+     * @param menuNode Node containing the menu
+     * @return A new menu instance containing all parsed data
+     * @throws XPathExpressionException
+     */
     private Menu extractMenu(Node menuNode) throws XPathExpressionException {
+        //XPath for element selection
         XPathExpression menuCategoryXPath = XPathFactory.newInstance().newXPath().compile(".//span[@class=\"menue-item menue-category\"]");
         XPathExpression menuDescrXPath = XPathFactory.newInstance().newXPath().compile(".//span[@class=\"menue-item menue-desc\"]");
         XPathExpression menuPriceXPath = XPathFactory.newInstance().newXPath().compile(".//span[@class=\"menue-item menue-price\"]");
+
 
         NodeList menuDescriptionNode = ((Node)menuDescrXPath.evaluate(menuNode, XPathConstants.NODE)).getChildNodes();
         String menuName = "";
@@ -71,10 +96,17 @@ public class RwthMensa extends Mensa {
             }
         }
 
+        //Build new menu and return it
         return new Menu(menuCategoryXPath.evaluate(menuNode, XPathConstants.STRING).toString().trim(),
                 menuName, menuPriceXPath.evaluate(menuNode, XPathConstants.STRING).toString().trim() );
     }
 
+    /**
+     * Concrete implementation of abstract mensa class. Retrieves the list of menus from the given
+     * webpage
+     * @return A list of menus and optional header information or null if an connection or parser
+     *         error occurred
+     */
     @Override
     public List<IDataProvider> getMenus() {
         List<IDataProvider> result;
@@ -82,22 +114,27 @@ public class RwthMensa extends Mensa {
         String html;
 
         try {
+            //Connect http client
             client.connect();
-
             html = client.requestData(this.getWebpage());
 
             //Convert html to valid xml
             html = html.replace("&", "&amp;");
 
+            //Parse html ignoring namespace
             Document doc = parseHtmlFast(html);
+
+            //xpath element selectors
             XPathExpression dayXPath = XPathFactory.newInstance().newXPath().compile("//div[@class=\"accordion\"]/h3//a/text()");
             XPathExpression menuTableXPath = XPathFactory.newInstance().newXPath().compile("//div[@class=\"accordion\"]/div");
             XPathExpression singleMenuXPath = XPathFactory.newInstance().newXPath().compile(".//td[@class=\"menue-wrapper\"]");
 
+            //Retrieve relevant nodes
             NodeList dayList = (NodeList) dayXPath.evaluate(doc, XPathConstants.NODESET);
             NodeList menuTableList = (NodeList) menuTableXPath.evaluate(doc, XPathConstants.NODESET);
 
             result = new ArrayList<>();
+            //For all days found
             for (int workingDay = 0; workingDay < dayList.getLength(); workingDay++ ) {
                 Node dayNode = dayList.item(workingDay);
                 String d = dayNode.getTextContent().replace("\n", "");
@@ -121,6 +158,7 @@ public class RwthMensa extends Mensa {
                 }
             }
         } catch (Exception e) {
+            //Notify container that an error occured by returning null
             return null;
         }
 

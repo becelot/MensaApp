@@ -1,7 +1,7 @@
 package bt.MensaApp.Model.JSON;
 
 /**
- * Created by bened on 11/12/2016.
+ * Server configuration file. Contains the host, port and API mapping for the JSON HTTP Proxy.
  */
 
 public class JSONServerConfig {

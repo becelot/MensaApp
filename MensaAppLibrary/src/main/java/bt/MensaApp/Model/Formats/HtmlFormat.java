@@ -9,14 +9,22 @@ import bt.MensaApp.Model.NavigationHeader;
 import bt.MensaApp.Model.Rwth.Uncompressed.RwthUniversity;
 
 /**
- * Created by bened on 11/8/2016.
+ * Concrete implementation of the HTML uncompressed format.
  */
 
 public class HtmlFormat extends Format {
+    /**
+     * Constructor for the HtmlFormat
+     * @param adapter Html
+     */
     public HtmlFormat(String adapter) {
         super(adapter);
     }
 
+    /**
+     * Retrieves a list of universities currently supported by the application.
+     * @return A list of universities and headers used for grouping
+     */
     @Override
     public List<IDataProvider> getUniversities() {
         List<IDataProvider> universityList = new ArrayList<>();

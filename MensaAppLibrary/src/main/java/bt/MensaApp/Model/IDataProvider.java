@@ -3,7 +3,7 @@ package bt.MensaApp.Model;
 import java.util.List;
 
 /**
- * Created by bened on 11/8/2016.
+ * Interface used to abstract navigation in the UI
  */
 public interface IDataProvider {
     List<IDataProvider> getData();

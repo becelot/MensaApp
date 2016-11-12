@@ -8,15 +8,23 @@ import bt.MensaApp.Model.NavigationHeader;
 import bt.MensaApp.Model.University;
 
 /**
- * Created by bened on 11/5/2016.
+ * Concrete implementation of the RWTH Aachen university class
  */
 
 public class RwthUniversity extends University {
 
+    /**
+     * Constructor for the universiy
+     * @param name Name of the university
+     */
     public RwthUniversity(String name) {
         super(name);
     }
 
+    /**
+     * Concrete abstract implementation that retrieves the list of available canteens
+     * @return The list of canteens with optional header information fields
+     */
     @Override
     public List<IDataProvider> getMensaList() {
         return Arrays.asList((IDataProvider) new NavigationHeader("RWTH Aachen"),
