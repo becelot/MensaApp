@@ -56,11 +56,11 @@ public class FragmentNavigation extends Fragment {
 
                     @Override
                     protected Integer doInBackground(IDataProvider... navigationList) {
-                        List<IDataProvider> menues = NavigationTransitionHelper.doTransition(navigationList[0]);
-                        if (menues == null) {
+                        List<IDataProvider> nextNavigationItems = navigationList[0].getData();
+                        if (nextNavigationItems == null) {
                             return 0;
                         }
-                        ArrayList<Object> menuOrdered = new ArrayList<Object>(menues);
+                        ArrayList<Object> menuOrdered = new ArrayList<Object>(nextNavigationItems);
                         Intent intent = new Intent(getActivity(), NavigationActivity.class);
                         intent.putExtra(NavigationActivity.EXTRA_NAVIGATION_ITEM_KEY, menuOrdered);
                         startActivity(intent);

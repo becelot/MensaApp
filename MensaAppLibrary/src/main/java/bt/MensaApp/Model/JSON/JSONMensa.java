@@ -23,8 +23,8 @@ import bt.MensaApp.Net.HttpClient;
  */
 
 public class JSONMensa extends Mensa {
-    private final String HOST = "134.61.74.81";
-    private final String MENU_API_HOST = "/getMenus?uni=%s&mensa=%s";
+    private final transient String HOST = "134.61.185.81";
+    private final transient String MENU_API_HOST = "/getMenus?uni=%s&mensa=%s";
 
 
 

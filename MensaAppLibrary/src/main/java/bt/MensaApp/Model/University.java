@@ -41,4 +41,8 @@ public abstract class University implements Serializable, IDataProvider {
 
     public abstract List<IDataProvider> getMensaList();
 
+    @Override
+    public List<IDataProvider> getData() {
+        return getMensaList();
+    }
 }

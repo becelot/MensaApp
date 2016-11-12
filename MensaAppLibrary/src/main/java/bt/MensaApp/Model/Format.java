@@ -35,4 +35,8 @@ public abstract class Format implements IDataProvider, Serializable {
     }
 
     public abstract List<IDataProvider> getUniversities();
+
+    public List<IDataProvider> getData() {
+        return getUniversities();
+    }
 }

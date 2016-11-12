@@ -16,7 +16,7 @@ import bt.MensaApp.Net.HttpClient;
  */
 
 public class JSONFormat extends Format {
-    private final String HOST = "134.61.74.81";
+    private final String HOST = "134.61.185.81";
     private final String UNIVERSITY_API_KEY = "/getUni";
 
     public JSONFormat(String adapter) {

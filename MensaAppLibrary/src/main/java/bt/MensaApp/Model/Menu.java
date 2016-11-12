@@ -2,6 +2,7 @@ package bt.MensaApp.Model;
 
 import java.io.Serializable;
 import java.util.Calendar;
+import java.util.List;
 
 /**
  * Created by bened on 11/5/2016.
@@ -40,5 +41,10 @@ public class Menu implements Serializable, IDataProvider {
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    @Override
+    public List<IDataProvider> getData() {
+        return null;
     }
 }

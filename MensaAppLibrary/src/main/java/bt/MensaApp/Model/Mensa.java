@@ -35,6 +35,11 @@ public abstract class Mensa implements Serializable, IDataProvider {
 
     public abstract List<IDataProvider> getMenus();
 
+    @Override
+    public List<IDataProvider> getData() {
+        return getMenus();
+    }
+
     public String getWebpage() {
         return webpage;
     }
