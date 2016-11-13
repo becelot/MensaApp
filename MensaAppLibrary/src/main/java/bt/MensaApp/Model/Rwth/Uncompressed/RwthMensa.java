@@ -92,10 +92,10 @@ public class RwthMensa extends Mensa {
         //Ignore superscripts
         for (int menuNameLine = 0; menuNameLine < menuDescriptionNode.getLength(); menuNameLine++) {
             if (menuDescriptionNode.item(menuNameLine).getNodeType() == Node.TEXT_NODE) {
-                menuName += menuDescriptionNode.item(menuNameLine).getTextContent().trim();
+                menuName += " " + menuDescriptionNode.item(menuNameLine).getTextContent().trim();
             }
         }
-
+        menuName = menuName.replace(" ,", ",").replace(" ,", ",").trim();
         //Build new menu and return it
         return new Menu(menuCategoryXPath.evaluate(menuNode, XPathConstants.STRING).toString().trim(),
                 menuName, menuPriceXPath.evaluate(menuNode, XPathConstants.STRING).toString().trim() );
