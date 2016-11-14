@@ -7,4 +7,5 @@ import java.util.List;
  */
 public interface IDataProvider {
     List<IDataProvider> getData();
+    boolean hasNext();
 }

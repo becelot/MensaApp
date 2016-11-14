@@ -61,4 +61,13 @@ public abstract class University implements Serializable, IDataProvider {
     public List<IDataProvider> getData() {
         return getMensaList();
     }
+
+    /**
+     * Concrete implementation for IDataProvider
+     * @return A flag indicating if content is expected
+     */
+    @Override
+    public boolean hasNext() {
+        return true;
+    }
 }

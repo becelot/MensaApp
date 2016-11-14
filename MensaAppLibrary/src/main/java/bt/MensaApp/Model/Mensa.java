@@ -101,4 +101,13 @@ public abstract class Mensa implements Serializable, IDataProvider {
     public University getUniversity() {
         return university;
     }
+
+    /**
+     * Concrete implementation for IDataProvider
+     * @return A flag indicating if content is expected
+     */
+    @Override
+    public boolean hasNext() {
+        return true;
+    }
 }

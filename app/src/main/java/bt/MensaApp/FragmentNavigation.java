@@ -77,6 +77,9 @@ public class FragmentNavigation extends Fragment {
                      */
                     @Override
                     protected Integer doInBackground(IDataProvider... navigationList) {
+                        if (!navigationList[0].hasNext()) {
+                            return -2;
+                        }
                         //retrieve requested data
                         List<IDataProvider> nextNavigationItems = navigationList[0].getData();
                         if (nextNavigationItems == null) {
@@ -102,7 +105,7 @@ public class FragmentNavigation extends Fragment {
 
                         //If error occurred, toast a message
                         if (result == -1) {
-                            Toast.makeText(getActivity().getBaseContext(), "Connection failed.\n Check your internet connection or try again later.", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getActivity().getBaseContext(), "Connection failed.\nCheck your internet connection or try again later.", Toast.LENGTH_LONG).show();
                         }
                     }
 

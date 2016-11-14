@@ -46,4 +46,13 @@ public class NavigationHeader implements Serializable, IDataProvider {
     public List<IDataProvider> getData() {
         return null;
     }
+
+    /**
+     * Concrete implementation for IDataProvider
+     * @return A flag indicating if content is expected
+     */
+    @Override
+    public boolean hasNext() {
+        return false;
+    }
 }
