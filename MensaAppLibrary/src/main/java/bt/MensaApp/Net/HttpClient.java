@@ -25,14 +25,14 @@ public class HttpClient {
 
     public void connect() throws IOException {
         socket = new Socket();
-        socket.connect(new InetSocketAddress(host, port), 10000);
-        socket.setSoTimeout(10000);
+        socket.connect(new InetSocketAddress(host, port), 15000);
+        socket.setSoTimeout(15000);
     }
 
     public void connect(String host) throws IOException {
         socket = new Socket();
-        socket.connect(new InetSocketAddress(host, port), 10000);
-        socket.setSoTimeout(10000);
+        socket.connect(new InetSocketAddress(host, port), 15000);
+        socket.setSoTimeout(15000);
     }
 
     public String requestData(String ressource) throws IOException, HttpHeaderException {
