@@ -1,6 +1,5 @@
 package bt.MensaApp.Model.Rwth.Uncompressed;
 
-import android.util.Log;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
@@ -15,7 +14,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
-import java.util.logging.Logger;
 
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -69,11 +67,10 @@ public class RwthMensa extends Mensa {
             // fac.setFeature("http://apache.org/xml/features/nonvalidating/load-dtd-grammar", false);
             // fac.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
         } catch (ParserConfigurationException e) {
-            Log.d("Parser", e.getMessage());
         }
         html += "</html>";
 
-        return fac.newDocumentBuilder().parse(new InputSource(new StringReader(html)));
+        return fac.newDocumentBuilder().parse(new InputSource(new StringReader(html.replace("body class=\"page-114\" class=\"pagetree-67 style-0\"", "body"))));
     }
 
     /**
