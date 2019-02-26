@@ -1,5 +1,7 @@
 package bt.MensaApp.Model.Rwth.Uncompressed;
 
+import android.util.Log;
+
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -13,6 +15,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
+import java.util.logging.Logger;
 
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -63,12 +66,12 @@ public class RwthMensa extends Mensa {
         try {
             fac.setFeature("http://xml.org/sax/features/namespaces", false);
             fac.setFeature("http://xml.org/sax/features/validation", false);
-            fac.setFeature("http://apache.org/xml/features/nonvalidating/load-dtd-grammar", false);
-            fac.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
+            // fac.setFeature("http://apache.org/xml/features/nonvalidating/load-dtd-grammar", false);
+            // fac.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
         } catch (ParserConfigurationException e) {
-
+            Log.d("Parser", e.getMessage());
         }
-
+        html += "</html>";
 
         return fac.newDocumentBuilder().parse(new InputSource(new StringReader(html)));
     }
@@ -82,9 +85,8 @@ public class RwthMensa extends Mensa {
     private Menu extractMenu(Node menuNode) throws XPathExpressionException {
         //XPath for element selection
         XPathExpression menuCategoryXPath = XPathFactory.newInstance().newXPath().compile(".//span[@class=\"menue-item menue-category\"]");
-        XPathExpression menuDescrXPath = XPathFactory.newInstance().newXPath().compile(".//span[@class=\"menue-item menue-desc\"]");
-        XPathExpression menuPriceXPath = XPathFactory.newInstance().newXPath().compile(".//span[@class=\"menue-item menue-price\"]");
-
+        XPathExpression menuDescrXPath = XPathFactory.newInstance().newXPath().compile(".//span[@class=\"menue-item menue-desc\"]//span[@class=\"expand-nutr\"]");
+        XPathExpression menuPriceXPath = XPathFactory.newInstance().newXPath().compile(".//span[@class=\"menue-item menue-price large-price\"]");
 
         NodeList menuDescriptionNode = ((Node)menuDescrXPath.evaluate(menuNode, XPathConstants.NODE)).getChildNodes();
         String menuName = "";
@@ -117,7 +119,6 @@ public class RwthMensa extends Mensa {
             //Connect http client
             client.connect();
             html = client.requestData(this.getWebpage());
-
             //Convert html to valid xml
             html = html.replace("&", "&amp;");
 
@@ -125,9 +126,9 @@ public class RwthMensa extends Mensa {
             Document doc = parseHtmlFast(html);
 
             //xpath element selectors
-            XPathExpression dayXPath = XPathFactory.newInstance().newXPath().compile("//div[@class=\"accordion\"]/h3//a/text()");
+            XPathExpression dayXPath = XPathFactory.newInstance().newXPath().compile("//div[@class=\"accordion\"]//h3//a/text()");
             XPathExpression menuTableXPath = XPathFactory.newInstance().newXPath().compile("//div[@class=\"accordion\"]/div");
-            XPathExpression singleMenuXPath = XPathFactory.newInstance().newXPath().compile(".//td[@class=\"menue-wrapper\"]");
+            XPathExpression singleMenuXPath = XPathFactory.newInstance().newXPath().compile(".//table[@class=\"menues\"]//td[@class=\"menue-wrapper\"]");
 
             //Retrieve relevant nodes
             NodeList dayList = (NodeList) dayXPath.evaluate(doc, XPathConstants.NODESET);
@@ -149,6 +150,7 @@ public class RwthMensa extends Mensa {
                 if (!calendar.after(now)) {
                     continue;
                 }
+
                 result.add(new NavigationHeader(parser.format(calendar.getTime()) ));
 
                 //Get all menus
@@ -159,6 +161,7 @@ public class RwthMensa extends Mensa {
             }
         } catch (Exception e) {
             //Notify container that an error occured by returning null
+            e.printStackTrace();
             return null;
         }
 
