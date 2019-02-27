@@ -22,6 +22,14 @@ public class RwthUniversity extends University {
     }
 
     /**
+     * Constructor for the university given another university. Copies all relevant fields.
+     * @param other The other university
+     */
+    public RwthUniversity(University other) {
+        super(other);
+    }
+
+    /**
      * Concrete abstract implementation that retrieves the list of available canteens
      * @return The list of canteens with optional header information fields
      */
