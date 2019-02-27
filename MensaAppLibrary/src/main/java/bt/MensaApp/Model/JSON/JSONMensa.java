@@ -6,6 +6,7 @@ import java.lang.reflect.Type;
 import java.net.URLEncoder;
 import java.util.List;
 
+import bt.MensaApp.Model.Format;
 import bt.MensaApp.Model.IDataProvider;
 import bt.MensaApp.Model.Mensa;
 import bt.MensaApp.Model.University;
@@ -50,9 +51,11 @@ public class JSONMensa extends Mensa {
             client.connect();
             json = client.requestData(String.format(JSONServerConfig.MENU_API_HOST, URLEncoder.encode(this.getUniversity().getName(), "UTF-8"), URLEncoder.encode(this.getName(), "UTF-8")));
 
+
+
             //Convert JSON back to actual objects
             Type listType = new TypeToken<List<IDataProvider>>(){}.getType();
-            return JsonParser.getParser().fromJson(json, listType);
+            return Format.generateTypeFactory().fromJson(json, listType);
 
         } catch (Exception e) {
             //Notify the container that an connection or parsing error occurred.
