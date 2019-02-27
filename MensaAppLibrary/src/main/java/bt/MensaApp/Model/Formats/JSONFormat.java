@@ -42,9 +42,10 @@ public class JSONFormat extends Format {
 
             //Convert JSON back to objects
             Type listType = new TypeToken<List<IDataProvider>>(){}.getType();
-            return JsonParser.getParser().fromJson(json, listType);
+            return Format.generateTypeFactory().fromJson(json, listType);
 
         } catch (Exception e) {
+            e.printStackTrace();
             return null;
         }
     }
