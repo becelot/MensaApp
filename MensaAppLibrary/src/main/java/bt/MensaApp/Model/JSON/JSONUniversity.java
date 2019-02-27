@@ -1,12 +1,20 @@
 package bt.MensaApp.Model.JSON;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
+import com.google.gson.typeadapters.RuntimeTypeAdapterFactory;
 
 import java.lang.reflect.Type;
 import java.net.URLEncoder;
 import java.util.List;
 
+import bt.MensaApp.Model.Format;
 import bt.MensaApp.Model.IDataProvider;
+import bt.MensaApp.Model.Mensa;
+import bt.MensaApp.Model.NavigationHeader;
+import bt.MensaApp.Model.Rwth.Uncompressed.RwthMensa;
+import bt.MensaApp.Model.Rwth.Uncompressed.RwthUniversity;
 import bt.MensaApp.Model.University;
 import bt.MensaApp.Net.HttpClient;
 
@@ -46,11 +54,14 @@ public class JSONUniversity extends University {
             client.connect();
             json = client.requestData(String.format(JSONServerConfig.MENSA_API_HOST, URLEncoder.encode(this.getName(), "UTF-8")));
 
+            System.out.println(json);
             //Convert JSON back to university and header objects
             Type listType = new TypeToken<List<IDataProvider>>(){}.getType();
-            return JsonParser.getParser().fromJson(json, listType);
+
+            return Format.generateTypeFactory().fromJson(json, listType);
 
         } catch (Exception e) {
+            e.printStackTrace();
             return null;
         }
     }
