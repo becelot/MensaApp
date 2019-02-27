@@ -1,11 +1,19 @@
 package bt.MensaApp.Model;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.typeadapters.RuntimeTypeAdapterFactory;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import bt.MensaApp.Model.Formats.HtmlFormat;
 import bt.MensaApp.Model.Formats.JSONFormat;
+import bt.MensaApp.Model.JSON.JSONMensa;
+import bt.MensaApp.Model.JSON.JSONUniversity;
+import bt.MensaApp.Model.Rwth.Uncompressed.RwthMensa;
+import bt.MensaApp.Model.Rwth.Uncompressed.RwthUniversity;
 
 /**
  * Represenation of the format. Two formats can be chosen:
@@ -76,5 +84,32 @@ public abstract class Format implements IDataProvider, Serializable {
     @Override
     public boolean hasNext() {
         return true;
+    }
+
+    public static Gson generateTypeFactory() {
+        RuntimeTypeAdapterFactory<IDataProvider> dataFactory =
+                RuntimeTypeAdapterFactory.of(IDataProvider.class, "type")
+                        .registerSubtype(RwthUniversity.class, "rwthUni")
+                        .registerSubtype(JSONUniversity.class, "jsonUni")
+                        .registerSubtype(JSONMensa.class, "jsonMensa")
+                        .registerSubtype(RwthMensa.class, "rwthMensa")
+                        .registerSubtype(Menu.class, "menu")
+                        .registerSubtype(NavigationHeader.class, "header");
+
+        RuntimeTypeAdapterFactory<University> universityAdapterFactory =
+                RuntimeTypeAdapterFactory.of(University.class, "type")
+                        .registerSubtype(RwthUniversity.class, "rwthUni")
+                        .registerSubtype(JSONUniversity.class, "jsonUni");
+
+        RuntimeTypeAdapterFactory<Mensa> mensaFactory =
+                RuntimeTypeAdapterFactory.of(Mensa.class, "type")
+                        .registerSubtype(JSONMensa.class, "jsonMensa")
+                        .registerSubtype(RwthMensa.class, "rwthMensa");
+
+        return new GsonBuilder()
+                .registerTypeAdapterFactory(dataFactory)
+                .registerTypeAdapterFactory(universityAdapterFactory)
+                .registerTypeAdapterFactory(mensaFactory)
+                .create();
     }
 }
