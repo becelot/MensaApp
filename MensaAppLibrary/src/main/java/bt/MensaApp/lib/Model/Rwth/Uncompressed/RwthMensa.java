@@ -28,6 +28,7 @@ import bt.MensaApp.lib.Model.Menu;
 import bt.MensaApp.lib.Model.NavigationHeader;
 import bt.MensaApp.lib.Model.University;
 import bt.MensaApp.lib.Net.HttpClient;
+import bt.MensaApp.lib.Net.HttpsClient;
 
 /**
  * Concrete implementation of the RWTH Mensa menu parser
@@ -37,7 +38,7 @@ public class RwthMensa extends Mensa {
     /**
      * Host of the webpage
      */
-    private final String HOST = "www.studierendenwerk-aachen.de";
+    private final String HOST = "https://www.studierendenwerk-aachen.de";
 
     /**
      * Constructor for a RWTH mensa
@@ -109,7 +110,7 @@ public class RwthMensa extends Mensa {
     @Override
     public List<IDataProvider> getMenus() {
         List<IDataProvider> result;
-        HttpClient client = new HttpClient(HOST);
+        HttpsClient client = new HttpsClient(HOST);
         String html;
 
         try {
