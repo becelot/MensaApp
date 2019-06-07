@@ -1,4 +1,4 @@
-package bt.MensaApp.Model.JSON;
+package bt.MensaApp.lib.Model.JSON;
 
 /**
  * Server configuration file. Contains the host, port and API mapping for the JSON HTTP Proxy.

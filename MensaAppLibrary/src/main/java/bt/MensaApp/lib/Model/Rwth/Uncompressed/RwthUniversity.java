@@ -1,11 +1,11 @@
-package bt.MensaApp.Model.Rwth.Uncompressed;
+package bt.MensaApp.lib.Model.Rwth.Uncompressed;
 
 import java.util.Arrays;
 import java.util.List;
 
-import bt.MensaApp.Model.IDataProvider;
-import bt.MensaApp.Model.NavigationHeader;
-import bt.MensaApp.Model.University;
+import bt.MensaApp.lib.Model.IDataProvider;
+import bt.MensaApp.lib.Model.NavigationHeader;
+import bt.MensaApp.lib.Model.University;
 
 /**
  * Concrete implementation of the RWTH Aachen university class

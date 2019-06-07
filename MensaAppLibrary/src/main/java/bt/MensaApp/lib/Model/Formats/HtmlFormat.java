@@ -1,12 +1,12 @@
-package bt.MensaApp.Model.Formats;
+package bt.MensaApp.lib.Model.Formats;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import bt.MensaApp.Model.Format;
-import bt.MensaApp.Model.IDataProvider;
-import bt.MensaApp.Model.NavigationHeader;
-import bt.MensaApp.Model.Rwth.Uncompressed.RwthUniversity;
+import bt.MensaApp.lib.Model.Format;
+import bt.MensaApp.lib.Model.IDataProvider;
+import bt.MensaApp.lib.Model.NavigationHeader;
+import bt.MensaApp.lib.Model.Rwth.Uncompressed.RwthUniversity;
 
 /**
  * Concrete implementation of the HTML uncompressed format.

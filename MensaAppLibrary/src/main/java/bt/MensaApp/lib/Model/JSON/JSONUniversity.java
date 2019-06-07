@@ -1,22 +1,15 @@
-package bt.MensaApp.Model.JSON;
+package bt.MensaApp.lib.Model.JSON;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
-import com.google.gson.typeadapters.RuntimeTypeAdapterFactory;
 
 import java.lang.reflect.Type;
 import java.net.URLEncoder;
 import java.util.List;
 
-import bt.MensaApp.Model.Format;
-import bt.MensaApp.Model.IDataProvider;
-import bt.MensaApp.Model.Mensa;
-import bt.MensaApp.Model.NavigationHeader;
-import bt.MensaApp.Model.Rwth.Uncompressed.RwthMensa;
-import bt.MensaApp.Model.Rwth.Uncompressed.RwthUniversity;
-import bt.MensaApp.Model.University;
-import bt.MensaApp.Net.HttpClient;
+import bt.MensaApp.lib.Model.Format;
+import bt.MensaApp.lib.Model.IDataProvider;
+import bt.MensaApp.lib.Model.University;
+import bt.MensaApp.lib.Net.HttpClient;
 
 /**
  * Concrete implementation of the abstract university class. This class uses the JSON

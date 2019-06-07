@@ -1,4 +1,4 @@
-package bt.MensaApp.Model.Rwth.Uncompressed;
+package bt.MensaApp.lib.Model.Rwth.Uncompressed;
 
 
 import org.w3c.dom.Document;
@@ -22,12 +22,12 @@ import javax.xml.xpath.XPathExpression;
 import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
 
-import bt.MensaApp.Model.IDataProvider;
-import bt.MensaApp.Model.Mensa;
-import bt.MensaApp.Model.Menu;
-import bt.MensaApp.Model.NavigationHeader;
-import bt.MensaApp.Model.University;
-import bt.MensaApp.Net.HttpClient;
+import bt.MensaApp.lib.Model.IDataProvider;
+import bt.MensaApp.lib.Model.Mensa;
+import bt.MensaApp.lib.Model.Menu;
+import bt.MensaApp.lib.Model.NavigationHeader;
+import bt.MensaApp.lib.Model.University;
+import bt.MensaApp.lib.Net.HttpClient;
 
 /**
  * Concrete implementation of the RWTH Mensa menu parser

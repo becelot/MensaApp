@@ -1,4 +1,4 @@
-package bt.MensaApp.Model;
+package bt.MensaApp.lib.Model;
 
 import java.util.List;
 

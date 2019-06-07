@@ -1,4 +1,4 @@
-package bt.MensaApp.Net;
+package bt.MensaApp.lib.Net;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -9,8 +9,8 @@ import java.net.Socket;
  */
 
 public class HttpClient {
-    private int port = 80;
-    private String host;
+    protected int port = 80;
+    protected String host;
     private Socket socket;
 
 
@@ -44,6 +44,7 @@ public class HttpClient {
         outStream.setHeaderOption("host", host);
         outStream.flush();
 
+        System.out.println(ressource);
         HttpInputStream stream = new HttpInputStream(socket.getInputStream());
 
         return stream.getBody();

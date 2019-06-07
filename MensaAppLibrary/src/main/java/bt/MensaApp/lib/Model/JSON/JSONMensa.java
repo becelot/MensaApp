@@ -1,4 +1,4 @@
-package bt.MensaApp.Model.JSON;
+package bt.MensaApp.lib.Model.JSON;
 
 import com.google.gson.reflect.TypeToken;
 
@@ -6,11 +6,11 @@ import java.lang.reflect.Type;
 import java.net.URLEncoder;
 import java.util.List;
 
-import bt.MensaApp.Model.Format;
-import bt.MensaApp.Model.IDataProvider;
-import bt.MensaApp.Model.Mensa;
-import bt.MensaApp.Model.University;
-import bt.MensaApp.Net.HttpClient;
+import bt.MensaApp.lib.Model.Format;
+import bt.MensaApp.lib.Model.IDataProvider;
+import bt.MensaApp.lib.Model.Mensa;
+import bt.MensaApp.lib.Model.University;
+import bt.MensaApp.lib.Net.HttpClient;
 
 /**
  * Concrete implementation of the abstract mensa class. This class uses the JSON

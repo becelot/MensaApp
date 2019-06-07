@@ -1,4 +1,4 @@
-package bt.MensaApp.Model;
+package bt.MensaApp.lib.Model;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -8,12 +8,12 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import bt.MensaApp.Model.Formats.HtmlFormat;
-import bt.MensaApp.Model.Formats.JSONFormat;
-import bt.MensaApp.Model.JSON.JSONMensa;
-import bt.MensaApp.Model.JSON.JSONUniversity;
-import bt.MensaApp.Model.Rwth.Uncompressed.RwthMensa;
-import bt.MensaApp.Model.Rwth.Uncompressed.RwthUniversity;
+import bt.MensaApp.lib.Model.Formats.HtmlFormat;
+import bt.MensaApp.lib.Model.Formats.JSONFormat;
+import bt.MensaApp.lib.Model.JSON.JSONMensa;
+import bt.MensaApp.lib.Model.JSON.JSONUniversity;
+import bt.MensaApp.lib.Model.Rwth.Uncompressed.RwthMensa;
+import bt.MensaApp.lib.Model.Rwth.Uncompressed.RwthUniversity;
 
 /**
  * Represenation of the format. Two formats can be chosen:

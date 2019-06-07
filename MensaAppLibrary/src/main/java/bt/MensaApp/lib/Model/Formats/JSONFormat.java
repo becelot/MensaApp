@@ -1,15 +1,14 @@
-package bt.MensaApp.Model.Formats;
+package bt.MensaApp.lib.Model.Formats;
 
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
 import java.util.List;
 
-import bt.MensaApp.Model.Format;
-import bt.MensaApp.Model.IDataProvider;
-import bt.MensaApp.Model.JSON.JSONServerConfig;
-import bt.MensaApp.Model.JSON.JsonParser;
-import bt.MensaApp.Net.HttpClient;
+import bt.MensaApp.lib.Model.Format;
+import bt.MensaApp.lib.Model.IDataProvider;
+import bt.MensaApp.lib.Model.JSON.JSONServerConfig;
+import bt.MensaApp.lib.Net.HttpClient;
 
 /**
  * Concrete implementation of the JSON compressed format. Contains information on how to communicate

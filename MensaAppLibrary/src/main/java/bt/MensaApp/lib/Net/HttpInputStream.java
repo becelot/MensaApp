@@ -1,4 +1,4 @@
-package bt.MensaApp.Net;
+package bt.MensaApp.lib.Net;
 
 import java.io.IOException;
 import java.io.InputStream;

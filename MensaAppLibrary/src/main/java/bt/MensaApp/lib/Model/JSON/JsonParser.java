@@ -1,16 +1,16 @@
-package bt.MensaApp.Model.JSON;
+package bt.MensaApp.lib.Model.JSON;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.typeadapters.RuntimeTypeAdapterFactory;
 
-import bt.MensaApp.Model.IDataProvider;
-import bt.MensaApp.Model.Mensa;
-import bt.MensaApp.Model.Menu;
-import bt.MensaApp.Model.NavigationHeader;
-import bt.MensaApp.Model.Rwth.Uncompressed.RwthMensa;
-import bt.MensaApp.Model.Rwth.Uncompressed.RwthUniversity;
-import bt.MensaApp.Model.University;
+import bt.MensaApp.lib.Model.IDataProvider;
+import bt.MensaApp.lib.Model.Mensa;
+import bt.MensaApp.lib.Model.Menu;
+import bt.MensaApp.lib.Model.NavigationHeader;
+import bt.MensaApp.lib.Model.Rwth.Uncompressed.RwthMensa;
+import bt.MensaApp.lib.Model.Rwth.Uncompressed.RwthUniversity;
+import bt.MensaApp.lib.Model.University;
 
 /**
  * Static class providing a parser with all subtypes registered for polymorphic json.
