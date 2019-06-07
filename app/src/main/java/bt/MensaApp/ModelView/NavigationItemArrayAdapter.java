@@ -10,12 +10,12 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import bt.MensaApp.Model.Format;
-import bt.MensaApp.Model.IDataProvider;
-import bt.MensaApp.Model.Mensa;
-import bt.MensaApp.Model.Menu;
-import bt.MensaApp.Model.NavigationHeader;
-import bt.MensaApp.Model.University;
+import bt.MensaApp.lib.Model.Format;
+import bt.MensaApp.lib.Model.IDataProvider;
+import bt.MensaApp.lib.Model.Mensa;
+import bt.MensaApp.lib.Model.Menu;
+import bt.MensaApp.lib.Model.NavigationHeader;
+import bt.MensaApp.lib.Model.University;
 import bt.MensaApp.R;
 
 /**

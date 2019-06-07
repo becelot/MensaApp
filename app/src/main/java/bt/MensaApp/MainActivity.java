@@ -7,8 +7,8 @@ import android.os.Bundle;
 
 import java.util.ArrayList;
 
-import bt.MensaApp.Model.Format;
-import bt.MensaApp.Model.IDataProvider;
+import bt.MensaApp.lib.Model.Format;
+import bt.MensaApp.lib.Model.IDataProvider;
 
 /**
  * Startup activity. Showing the splash screen for 3 seconds while loading the data.

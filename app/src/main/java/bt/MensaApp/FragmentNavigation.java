@@ -15,7 +15,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-import bt.MensaApp.Model.IDataProvider;
+import bt.MensaApp.lib.Model.IDataProvider;
 import bt.MensaApp.ModelView.NavigationItemArrayAdapter;
 
 

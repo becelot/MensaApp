@@ -8,7 +8,7 @@ import android.os.Bundle;
 
 import java.util.ArrayList;
 
-import bt.MensaApp.Model.IDataProvider;
+import bt.MensaApp.lib.Model.IDataProvider;
 
 /**
  * Navigation activity that contains a list view for navigation purpose.
